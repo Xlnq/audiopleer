@@ -7,6 +7,86 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="0.15*"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="MediaList" Grid.ColumnSpan="8"/>
+        <MediaElement x:Name="media" LoadedBehavior="Manual" MediaOpened="media_MediaOpened" Grid.RowSpan="2" Grid.ColumnSpan="8"/>
+        <Slider x:Name="SliderMusic" 
+                Grid.Row="1" Grid.ColumnSpan="8" 
+                VerticalAlignment="Center" 
+                ValueChanged="SliderMusic_ValueChanged" 
+                Minimum="0" Maximum="1" 
+                Value="0"/>
+        <Slider x:Name="SliderVolume" 
+                Grid.Row="2" 
+                Grid.Column="7"
+                VerticalAlignment="Center"
+                Value="6"
+                ValueChanged="SliderVolume_ValueChanged" />
+        <TextBlock Grid.Row="1" 
+                   VerticalAlignment="Top"
+                   x:Name="Timer"
+                   Text="00:00"
+                   FontSize="18"
+                   HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="1" 
+               VerticalAlignment="Top"
+               x:Name="TimerLeft"
+               Text="00:00"
+               FontSize="18"
+               HorizontalAlignment="Right"
+               Grid.Column="7"/>
+        <TextBlock Text="Громкость" 
+                   Grid.Column="6" 
+                   FontSize="20" 
+                   VerticalAlignment="Center" 
+                   Grid.Row="2"/>
+        <Button x:Name="OpenBtn" 
+                Content="Открть папку с музыкой" 
+                FontSize="18" 
+                Grid.Row="2" Grid.ColumnSpan="8" 
+                Grid.RowSpan="2"
+                Click="OpenBtn_Click" 
+                Margin="0,43,0,0"/>
+        <Button Grid.Row="2" 
+                Grid.Column="0" 
+                Content="Назад"
+                Click="BackBtn_Click"/>
+        <Button Grid.Row="2" 
+                Grid.Column="1"
+                FontSize="12"
+                x:Name="PlayButton"
+                Content="Старт"
+                Click="StartBtn_Click"/>
+        <Button Grid.Row="2" 
+                Grid.Column="2" 
+                Content="Стоп"
+                Click="StopBtn_Click"/>
+        <Button Grid.Row="2" 
+                Grid.Column="3" 
+                Content="Вперед"
+                Click="NextBtn_Click"/>
+        <Button Grid.Row="2" 
+                Grid.Column="4" 
+                x:Name="shuffleButton"
+                Content="Случайно"/>
+        <Button Grid.Row="2"
+                x:Name="repeatButton"
+                Grid.Column="5" 
+                Content="Повтор"/>
     </Grid>
 </Window>
